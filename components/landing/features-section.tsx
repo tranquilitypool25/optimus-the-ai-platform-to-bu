@@ -12,8 +12,8 @@ const features = [
   },
   {
     number: "02",
-    title: "Custom Software",
-    description: "Bespoke applications built precisely around how your business works. No off-the-shelf compromises — purpose-built software for the problems only you have.",
+    title: "Bespoke, Not Templated",
+    description: "Your business has unique challenges. We build around your specific needs — never forcing you into a framework designed for someone else.",
     visual: "ai",
   },
   {
