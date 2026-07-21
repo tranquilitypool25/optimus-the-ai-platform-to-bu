@@ -189,43 +189,65 @@ function CollabVisual() {
 function SecurityVisual() {
   return (
     <svg viewBox="0 0 200 160" className="w-full h-full">
-      {/* Shield */}
-      <path
-        d="M 100 20 L 150 40 L 150 90 Q 150 130 100 145 Q 50 130 50 90 L 50 40 Z"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-      />
+      {/* Outer refresh circle */}
+      <circle cx="100" cy="80" r="45" fill="none" stroke="currentColor" strokeWidth="2" opacity="0.3" />
       
-      {/* Inner shield */}
-      <path
-        d="M 100 35 L 135 50 L 135 85 Q 135 115 100 128 Q 65 115 65 85 L 65 50 Z"
-        fill="currentColor"
-        opacity="0.1"
-      >
-        <animate attributeName="opacity" values="0.1;0.2;0.1" dur="2s" repeatCount="indefinite" />
-      </path>
+      {/* Main rotation circle */}
+      <circle cx="100" cy="80" r="35" fill="none" stroke="currentColor" strokeWidth="2.5">
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          values="0 100 80;360 100 80"
+          dur="3s"
+          repeatCount="indefinite"
+        />
+      </circle>
       
-      {/* Lock icon */}
-      <rect x="85" y="70" width="30" height="25" rx="3" fill="currentColor" />
-      <path
-        d="M 90 70 L 90 60 Q 90 50 100 50 Q 110 50 110 60 L 110 70"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="3"
-        strokeLinecap="round"
-      />
+      {/* Arrow 1 (top right) */}
+      <g>
+        <path
+          d="M 130 65 L 140 55 L 135 45"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            values="0 100 80;360 100 80"
+            dur="3s"
+            repeatCount="indefinite"
+          />
+        </path>
+      </g>
       
-      {/* Keyhole */}
-      <circle cx="100" cy="80" r="4" fill="white" />
-      <rect x="98" y="82" width="4" height="8" fill="white" />
+      {/* Arrow 2 (bottom left) */}
+      <g>
+        <path
+          d="M 70 95 L 60 105 L 65 115"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            values="0 100 80;360 100 80"
+            dur="3s"
+            repeatCount="indefinite"
+          />
+        </path>
+      </g>
       
-      {/* Scan lines */}
-      <line x1="60" y1="60" x2="140" y2="60" stroke="currentColor" strokeWidth="1" opacity="0">
-        <animate attributeName="y1" values="40;120;40" dur="3s" repeatCount="indefinite" />
-        <animate attributeName="y2" values="40;120;40" dur="3s" repeatCount="indefinite" />
-        <animate attributeName="opacity" values="0;0.5;0" dur="3s" repeatCount="indefinite" />
-      </line>
+      {/* Center pulse */}
+      <circle cx="100" cy="80" r="12" fill="none" stroke="currentColor" strokeWidth="2">
+        <animate attributeName="r" values="12;16;12" dur="1.5s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite" />
+      </circle>
     </svg>
   );
 }
