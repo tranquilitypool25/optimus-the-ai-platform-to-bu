@@ -8,11 +8,11 @@ import { AnimatedSphere } from "./animated-sphere";
 const words = ["create", "build", "scale", "ship"];
 
 export function HeroSection() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
 
   useEffect(() => {
-    setIsVisible(true);
+    setMounted(true);
   }, []);
 
   useEffect(() => {
@@ -22,6 +22,8 @@ export function HeroSection() {
     return () => clearInterval(interval);
   }, []);
 
+  const isVisible = mounted;
+
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
       {/* Animated sphere background */}
@@ -30,7 +32,7 @@ export function HeroSection() {
       </div>
       
       {/* Subtle grid lines */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30" suppressHydrationWarning>
         {[...Array(8)].map((_, i) => (
           <div
             key={`h-${i}`}
