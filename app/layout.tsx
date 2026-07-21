@@ -1,6 +1,6 @@
 import React from "react"
 import type { Metadata } from 'next'
-import { Instrument_Sans, Instrument_Serif, JetBrains_Mono } from 'next/font/google'
+import { Instrument_Sans, Instrument_Serif, JetBrains_Mono, Open_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
@@ -20,6 +20,11 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains'
 });
 
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  variable: '--font-open-sans'
+});
+
 export const metadata: Metadata = {
   title: 'Optimus - Platform to Create',
   description: 'The creative platform for teams who ship. Build, deploy, and scale with unprecedented velocity.',
@@ -33,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${instrumentSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+      <body className={`${instrumentSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} ${openSans.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>

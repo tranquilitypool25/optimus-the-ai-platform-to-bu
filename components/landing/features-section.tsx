@@ -346,12 +346,12 @@ export function FeaturesSection() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="mb-16 lg:mb-24">
-          <span className="inline-flex items-center gap-3 text-lg font-mono text-muted-foreground mb-6">
+          <span className="inline-flex items-center gap-3 text-2xl font-sans text-muted-foreground mb-6">
             <span className="w-8 h-px bg-foreground/30" />
             Why Tranquility Intelligence
           </span>
           <h2
-            className={`text-4xl lg:text-6xl font-display tracking-tight leading-[1.2] lg:leading-[1.15] transition-all duration-700 space-y-2 lg:space-y-3 ${
+            className={`text-4xl lg:text-7xl font-display tracking-tight leading-[1.2] lg:leading-[1.15] transition-all duration-700 space-y-2 lg:space-y-3 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
