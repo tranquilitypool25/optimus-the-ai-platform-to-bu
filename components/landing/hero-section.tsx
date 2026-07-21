@@ -56,7 +56,7 @@ export function HeroSection() {
       </div>
       
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-32 lg:py-40">
-        {/* Eyebrow */}
+        {/* Eyebrow - moved before headline */}
         <div 
           className={`mb-8 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
@@ -67,7 +67,7 @@ export function HeroSection() {
             Automate. Elevate. Dominate.
           </span>
         </div>
-        
+
         {/* Main headline */}
         <div className="mb-12">
           <h1 
