@@ -23,8 +23,8 @@ const features = [
   },
   {
     number: "04",
-    title: "Lead Generation",
-    description: "Automated pipelines that identify, attract, and qualify your ideal clients. We build systems that fill your calendar with relevant opportunities — without manual prospecting.",
+    title: "Strategic Consulting",
+    description: "Expert guidance on digital transformation, AI strategy, and operational efficiency. We help you see the full picture, prioritise correctly, and execute with precision.",
     visual: "security",
   },
 ];
