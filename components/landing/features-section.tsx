@@ -351,13 +351,12 @@ export function FeaturesSection() {
             Why Tranquility Intelligence
           </span>
           <h2
-            className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
+            className={`text-4xl lg:text-6xl font-display tracking-tight leading-[1.2] lg:leading-[1.15] transition-all duration-700 space-y-2 lg:space-y-3 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            We don&apos;t sell software.
-            <br />
-            <span className="text-muted-foreground">We install outcomes.</span>
+            <div>We don&apos;t sell software.</div>
+            <div className="text-muted-foreground">We install outcomes.</div>
           </h2>
         </div>
 
