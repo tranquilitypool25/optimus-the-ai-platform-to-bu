@@ -11,8 +11,8 @@ const features = [
   },
   {
     number: "02",
-    title: "AI-Native Workflows",
-    description: "Build intelligent applications with built-in AI capabilities. From inference to training, everything scales automatically.",
+    title: "Business Systems",
+    description: "Architect scalable operational infrastructure that grows with you. We connect your tools, people, and processes into one coherent, efficient machine.",
     visual: "ai",
   },
   {
