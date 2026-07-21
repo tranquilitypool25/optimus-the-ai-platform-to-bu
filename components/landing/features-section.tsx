@@ -17,8 +17,8 @@ const features = [
   },
   {
     number: "03",
-    title: "CRM Setup",
-    description: "Never lose a lead again. We implement and optimise CRM systems that track every touchpoint, automate follow-ups, and give you complete pipeline visibility.",
+    title: "AI Assistants",
+    description: "Custom-trained AI assistants that work round the clock — handling queries, qualifying leads, and supporting your team as a tireless extension of your organisation.",
     visual: "collab",
   },
   {
