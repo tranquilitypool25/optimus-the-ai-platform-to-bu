@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button";
 const features = [
   {
     number: "01",
-    title: "AI Automation",
-    description: "Deploy intelligent automation that eliminates repetitive tasks, reduces human error, and frees your team for high-value work — from data processing to customer interactions.",
+    title: "AI-First Methodology",
+    description: "Every system we build starts with the question: how can AI make this better? Not as an afterthought — as the foundation.",
     visual: "deploy",
   },
   {
@@ -346,14 +346,15 @@ export function FeaturesSection() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="mb-16 lg:mb-24">
-          <span className="inline-flex items-center gap-3 text-2xl font-sans text-muted-foreground mb-6">
+          <span className="inline-flex items-center gap-3 text-2xl text-muted-foreground mb-6" style={{ fontFamily: 'var(--font-open-sans)' }}>
             <span className="w-8 h-px bg-foreground/30" />
             Why Tranquility Intelligence
           </span>
           <h2
-            className={`text-4xl lg:text-7xl font-display tracking-tight leading-[1.2] lg:leading-[1.15] transition-all duration-700 space-y-2 lg:space-y-3 ${
+            className={`text-4xl lg:text-7xl tracking-tight leading-[1.2] lg:leading-[1.15] transition-all duration-700 space-y-2 lg:space-y-3 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
+            style={{ fontFamily: 'var(--font-playfair)' }}
           >
             <div>We don&apos;t sell software.</div>
             <div className="text-muted-foreground">We install outcomes.</div>

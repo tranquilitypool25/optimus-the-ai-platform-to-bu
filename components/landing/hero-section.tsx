@@ -64,7 +64,7 @@ export function HeroSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <span className="inline-flex items-center gap-3 text-lg font-sans text-muted-foreground">
+          <span className="inline-flex items-center gap-3 text-lg text-muted-foreground" style={{ fontFamily: 'var(--font-open-sans)' }}>
             <span className="w-8 h-px bg-foreground/30" />
             Automate. Elevate. Dominate.
           </span>
@@ -73,9 +73,10 @@ export function HeroSection() {
         {/* Main headline */}
         <div className="mb-12">
           <h1 
-            className={`text-[clamp(3rem,12vw,10rem)] font-display leading-[0.9] tracking-tight transition-all duration-1000 ${
+            className={`text-[clamp(3rem,12vw,10rem)] font-serif leading-[0.9] tracking-tight transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
+            style={{ fontFamily: 'var(--font-playfair)' }}
           >
             <span className="block">Intelligence,</span>
             <span className="block">Built Into</span>

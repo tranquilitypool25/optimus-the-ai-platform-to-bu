@@ -46,7 +46,7 @@ export function Navigation() {
         >
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
-            <span className={`font-display tracking-tight transition-all duration-500 ${isScrolled ? "text-2xl" : "text-4xl"}`}>Tranquility Intellegence</span>
+            <span className={`font-sans font-normal tracking-tight transition-all duration-500 ${isScrolled ? "text-2xl" : "text-4xl"}`}>Tranquility Intellegence</span>
             <span className={`text-muted-foreground font-mono transition-all duration-500 ${isScrolled ? "text-[10px] mt-0.5" : "text-xs mt-1"}`}>TM</span>
           </a>
 
