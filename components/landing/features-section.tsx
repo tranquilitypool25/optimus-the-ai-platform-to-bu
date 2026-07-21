@@ -23,8 +23,8 @@ const features = [
   },
   {
     number: "04",
-    title: "Enterprise Security",
-    description: "Bank-grade encryption, SOC 2 compliance, and granular access controls. Your data stays yours.",
+    title: "Lead Generation",
+    description: "Automated pipelines that identify, attract, and qualify your ideal clients. We build systems that fill your calendar with relevant opportunities — without manual prospecting.",
     visual: "security",
   },
 ];
