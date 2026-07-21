@@ -11,8 +11,8 @@ const features = [
   },
   {
     number: "02",
-    title: "Business Systems",
-    description: "Architect scalable operational infrastructure that grows with you. We connect your tools, people, and processes into one coherent, efficient machine.",
+    title: "Custom Software",
+    description: "Bespoke applications built precisely around how your business works. No off-the-shelf compromises — purpose-built software for the problems only you have.",
     visual: "ai",
   },
   {
