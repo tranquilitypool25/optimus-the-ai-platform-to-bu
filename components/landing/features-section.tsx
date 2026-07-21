@@ -17,8 +17,8 @@ const features = [
   },
   {
     number: "03",
-    title: "Real-time Collaboration",
-    description: "Work together seamlessly. Live preview, instant feedback, and version control that actually makes sense.",
+    title: "CRM Setup",
+    description: "Never lose a lead again. We implement and optimise CRM systems that track every touchpoint, automate follow-ups, and give you complete pipeline visibility.",
     visual: "collab",
   },
   {
