@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const features = [
   {
@@ -365,6 +366,16 @@ export function FeaturesSection() {
           {features.map((feature, index) => (
             <FeatureCard key={feature.number} feature={feature} index={index} />
           ))}
+          
+          {/* Email CTA */}
+          <div className="pt-12 lg:pt-20">
+            <Button
+              size="lg"
+              className="bg-foreground hover:bg-foreground/90 text-background px-8 h-12 text-base rounded-full"
+            >
+              Insert your email to explore all of our other serices
+            </Button>
+          </div>
         </div>
       </div>
     </section>
