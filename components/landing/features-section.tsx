@@ -285,33 +285,32 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
   }, []);
 
   return (
-    <div
+          <div
       ref={cardRef}
       className={`group relative transition-all duration-700 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 py-12 lg:py-20 border-b border-foreground/10">
+      <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-16 py-8 sm:py-12 lg:py-20 border-b border-foreground/10">
         {/* Number */}
         <div className="shrink-0">
-          <span className="font-mono text-sm text-muted-foreground">{feature.number}</span>
+          <span className="font-mono text-xs sm:text-sm text-muted-foreground tracking-wide">{feature.number}</span>
         </div>
-        
         {/* Content */}
-        <div className="flex-1 grid lg:grid-cols-2 gap-8 items-center">
+        <div className="flex-1 grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
           <div>
-            <h3 className="text-3xl lg:text-4xl font-display mb-4 group-hover:translate-x-2 transition-transform duration-500">
+            <h3 className="text-card-title font-display mb-3 sm:mb-4 group-hover:translate-x-2 transition-transform duration-500 text-foreground">
               {feature.title}
             </h3>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-body text-muted-foreground leading-relaxed">
               {feature.description}
             </p>
           </div>
           
           {/* Visual */}
           <div className="flex justify-center lg:justify-end">
-            <div className="w-48 h-40 text-foreground">
+            <div className="w-32 h-28 sm:w-40 sm:h-36 lg:w-48 lg:h-40 text-foreground">
               <AnimatedVisual type={feature.visual} />
             </div>
           </div>
@@ -341,23 +340,22 @@ export function FeaturesSection() {
     <section
       id="features"
       ref={sectionRef}
-      className="relative py-24 lg:py-32"
+      className="relative py-8 sm:py-16 lg:py-24 -mt-8 sm:-mt-12 lg:-mt-16"
     >
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
         {/* Header */}
-        <div className="mb-16 lg:mb-24">
-          <span className="inline-flex items-center gap-3 text-2xl text-muted-foreground mb-6" style={{ fontFamily: 'var(--font-open-sans)' }}>
-            <span className="w-8 h-px bg-foreground/30" />
+        <div className="mb-12 sm:mb-16 lg:mb-24">
+          <span className="inline-flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 font-sans tracking-wide">
+            <span className="w-6 sm:w-8 h-px bg-accent/60" />
             Why Tranquility Intelligence
           </span>
           <h2
-            className={`text-4xl lg:text-7xl tracking-tight leading-[1.2] lg:leading-[1.15] transition-all duration-700 space-y-2 lg:space-y-3 ${
+            className={`text-section-title font-display transition-all duration-700 space-y-2 sm:space-y-3 lg:space-y-4 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
-            style={{ fontFamily: 'var(--font-playfair)' }}
           >
-            <div>We don&apos;t sell software.</div>
-            <div className="text-muted-foreground">We install outcomes.</div>
+            <div className="text-foreground">We don&apos;t sell software.</div>
+            <div className="text-accent-gold">We install outcomes.</div>
           </h2>
         </div>
 
@@ -367,15 +365,7 @@ export function FeaturesSection() {
             <FeatureCard key={feature.number} feature={feature} index={index} />
           ))}
           
-          {/* Email CTA */}
-          <div className="pt-12 lg:pt-20">
-            <Button
-              size="lg"
-              className="bg-foreground hover:bg-foreground/90 text-background px-8 h-12 text-base rounded-full"
-            >
-              Insert your email to explore all of our other serices
-            </Button>
-          </div>
+          {/* Email CTA removed per feedback */}
         </div>
       </div>
     </section>

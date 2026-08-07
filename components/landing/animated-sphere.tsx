@@ -74,10 +74,14 @@ export function AnimatedSphere() {
       // Sort by z for depth
       points.sort((a, b) => a.z - b.z);
 
-      // Draw points
+      // Draw points - Golden colour
       points.forEach((point) => {
-        const alpha = 0.2 + (point.z + 1) * 0.4;
-        ctx.fillStyle = `rgba(0, 0, 0, ${alpha})`;
+        const alpha = 0.3 + (point.z + 1) * 0.5;
+        // Champagne gold: #C8A45D
+        const r = 200;
+        const g = 164;
+        const b = 93;
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
         ctx.fillText(point.char, point.x, point.y);
       });
 
