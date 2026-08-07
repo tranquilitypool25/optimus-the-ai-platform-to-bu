@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { Zap, MessageSquare, Users, Calendar, Mail, Workflow, Star, BookOpen, BarChart3, Lightbulb, Funnel, Sparkles, Settings } from "lucide-react";
+import { Zap, MessageSquare, Users, Calendar, Mail, Workflow, Star, BookOpen, BarChart3, Lightbulb, Filter, Sparkles, Settings } from "lucide-react";
 
 const aiCapabilities = [
   { title: "AI Voice Assistants", icon: Zap },
@@ -14,7 +14,7 @@ const aiCapabilities = [
   { title: "AI Knowledge Base", icon: BookOpen },
   { title: "AI Reporting & Insights", icon: BarChart3 },
   { title: "AI Conversation Assistants", icon: Lightbulb },
-  { title: "AI Funnel Generation", icon: Funnel },
+  { title: "AI Funnel Generation", icon: Filter },
   { title: "AI Studio", icon: Sparkles },
   { title: "AI Prompt Optimisation", icon: Settings },
 ];
