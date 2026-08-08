@@ -5,11 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "Services", href: "#services" },
-  { name: "Features", href: "#features" },
-  { name: "How it works", href: "#how-it-works" },
-  { name: "Developers", href: "#developers" },
+  { name: "About", href: "#features" },
+  { name: "Services", href: "#custom-software" },
+  { name: "Security", href: "#security" },
   { name: "Pricing", href: "#pricing" },
+  { name: "Contact", href: "#apply" },
 ];
 
 export function Navigation() {

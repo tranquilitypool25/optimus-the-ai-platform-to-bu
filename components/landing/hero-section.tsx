@@ -62,9 +62,46 @@ export function HeroSection() {
               <span className="text-accent-gold">Your Business.</span>
             </span>
           </h1>
+          
+          {/* Brand Bio - Added based on Go Live HQ guide */}
+          <p 
+            className="mt-6 sm:mt-8 text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed transition-all duration-1000"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(2rem)',
+              transitionDelay: '300ms'
+            }}
+          >
+            Helping ambitious businesses automate operations, improve efficiency, and create scalable systems for growth.
+          </p>
         </div>
         
-        {/* CTAs removed per feedback */}
+        {/* CTAs - Restored and improved based on guide */}
+        <div 
+          className="flex flex-col sm:flex-row gap-4 transition-all duration-1000"
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? 'translateY(0)' : 'translateY(2rem)',
+            transitionDelay: '500ms'
+          }}
+        >
+          <Button 
+            size="lg" 
+            className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-8 h-14 text-base font-bold group"
+            onClick={() => document.getElementById('apply')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Apply for Access
+            <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+          </Button>
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="border-foreground/20 text-foreground hover:bg-foreground/5 rounded-full px-8 h-14 text-base"
+            onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            View Solutions
+          </Button>
+        </div>
         
       </div>
       

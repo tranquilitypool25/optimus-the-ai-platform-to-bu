@@ -5,50 +5,47 @@ import { ArrowRight, Check } from "lucide-react";
 
 const plans = [
   {
-    name: "Starter",
-    description: "For individuals and small projects",
-    price: { monthly: 0, annual: 0 },
+    name: "Foundation",
+    description: "Essential AI automation for small businesses",
+    price: { monthly: 499, annual: 399 },
     features: [
-      "Up to 3 projects",
-      "1GB storage",
-      "Community support",
-      "Basic analytics",
-      "SSL certificates",
+      "Core Workflow Automation",
+      "Single AI Assistant Deployment",
+      "Standard Security Package",
+      "Monthly Strategy Sync",
+      "Email Support",
     ],
-    cta: "Start free",
+    cta: "Get Started",
     popular: false,
   },
   {
-    name: "Pro",
-    description: "For growing teams and businesses",
-    price: { monthly: 29, annual: 24 },
+    name: "Growth",
+    description: "Comprehensive systems for scaling companies",
+    price: { monthly: 1499, annual: 1249 },
     features: [
-      "Unlimited projects",
-      "100GB storage",
-      "Priority support",
-      "Advanced analytics",
-      "Custom domains",
-      "Team collaboration",
-      "API access",
+      "Multi-System Integration",
+      "Custom AI Agents & Tools",
+      "Advanced Infrastructure",
+      "Bi-Weekly Consulting",
+      "Priority 24/7 Support",
+      "Internal Dashboards",
     ],
-    cta: "Start trial",
+    cta: "Apply for Growth",
     popular: true,
   },
   {
     name: "Enterprise",
-    description: "For large-scale operations",
+    description: "Full-scale transformation for industry leaders",
     price: { monthly: null, annual: null },
     features: [
-      "Everything in Pro",
-      "Unlimited storage",
-      "24/7 dedicated support",
-      "Custom integrations",
-      "SLA guarantee",
-      "On-premise option",
-      "Security audit",
-      "Custom contracts",
+      "Everything in Growth",
+      "Bespoke Software Development",
+      "On-Premise AI Deployment",
+      "Dedicated Strategic Lead",
+      "Custom SLA & Security Audit",
+      "Unlimited Integrations",
     ],
-    cta: "Contact sales",
+    cta: "Contact Strategy Team",
     popular: false,
   },
 ];
@@ -65,12 +62,12 @@ export function PricingSection() {
             Pricing
           </span>
           <h2 className="text-section-title font-display mb-4 sm:mb-6">
-            Simple, transparent
+            Invest in your
             <br />
-            <span className="text-accent-gold">pricing</span>
+            <span className="text-accent-gold">outcomes</span>
           </h2>
           <p className="text-body text-muted-foreground max-w-xl">
-            Start free and scale as you grow. No hidden fees, no surprises.
+            Strategic automation designed to scale your business. Choose the level of support that fits your goals.
           </p>
         </div>
 
