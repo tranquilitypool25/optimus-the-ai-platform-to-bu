@@ -1,13 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import { ArrowRight, Check } from "lucide-react";
 
 const plans = [
   {
     name: "Foundation",
     description: "Essential AI automation for small businesses",
-    price: { monthly: 499, annual: 399 },
     features: [
       "Core Workflow Automation",
       "Single AI Assistant Deployment",
@@ -15,13 +13,12 @@ const plans = [
       "Monthly Strategy Sync",
       "Email Support",
     ],
-    cta: "Get Started",
+    cta: "Request Consultation",
     popular: false,
   },
   {
     name: "Growth",
     description: "Comprehensive systems for scaling companies",
-    price: { monthly: 1499, annual: 1249 },
     features: [
       "Multi-System Integration",
       "Custom AI Agents & Tools",
@@ -36,7 +33,6 @@ const plans = [
   {
     name: "Enterprise",
     description: "Full-scale transformation for industry leaders",
-    price: { monthly: null, annual: null },
     features: [
       "Everything in Growth",
       "Bespoke Software Development",
@@ -51,15 +47,13 @@ const plans = [
 ];
 
 export function PricingSection() {
-  const [isAnnual, setIsAnnual] = useState(true);
-
   return (
     <section id="pricing" className="relative py-16 sm:py-24 lg:py-32 xl:py-40 border-t border-foreground/10">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         {/* Header */}
         <div className="max-w-3xl mb-12 sm:mb-16 lg:mb-20">
           <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase block mb-4 sm:mb-6">
-            Pricing
+            Solutions
           </span>
           <h2 className="text-section-title font-display mb-4 sm:mb-6">
             Invest in your
@@ -69,39 +63,6 @@ export function PricingSection() {
           <p className="text-body text-muted-foreground max-w-xl">
             Strategic automation designed to scale your business. Choose the level of support that fits your goals.
           </p>
-        </div>
-
-        {/* Billing Toggle */}
-        <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-12 sm:mb-16">
-          <span
-            className={`text-xs sm:text-sm transition-colors font-sans ${
-              !isAnnual ? "text-foreground" : "text-muted-foreground"
-            }`}
-          >
-            Monthly
-          </span>
-          <button
-            onClick={() => setIsAnnual(!isAnnual)}
-            className="relative w-12 sm:w-14 h-6 sm:h-7 bg-foreground/10 rounded-full p-1 transition-colors hover:bg-foreground/20"
-          >
-            <div
-              className={`w-4 sm:w-5 h-4 sm:h-5 bg-accent rounded-full transition-transform duration-300 ${
-                isAnnual ? "translate-x-6 sm:translate-x-7" : "translate-x-0"
-              }`}
-            />
-          </button>
-          <span
-            className={`text-xs sm:text-sm transition-colors font-sans ${
-              isAnnual ? "text-foreground" : "text-muted-foreground"
-            }`}
-          >
-            Annual
-          </span>
-          {isAnnual && (
-            <span className="ml-auto sm:ml-2 px-2 sm:px-3 py-1 bg-accent text-accent-foreground text-xs font-mono font-medium">
-              Save 17%
-            </span>
-          )}
         </div>
 
         {/* Pricing Cards */}
@@ -128,18 +89,9 @@ export function PricingSection() {
                 <p className="text-xs sm:text-sm text-muted-foreground mt-2">{plan.description}</p>
               </div>
 
-              {/* Price */}
+              {/* Price Label */}
               <div className="mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-foreground/10">
-                {plan.price.monthly !== null ? (
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-display text-4xl sm:text-5xl lg:text-6xl text-foreground tabular-nums">
-                      ${isAnnual ? plan.price.annual : plan.price.monthly}
-                    </span>
-                    <span className="text-xs sm:text-sm text-muted-foreground">/month</span>
-                  </div>
-                ) : (
-                  <span className="font-display text-3xl sm:text-4xl text-foreground">Custom</span>
-                )}
+                <span className="font-display text-2xl sm:text-3xl text-foreground">Bespoke Investment</span>
               </div>
 
               {/* Features */}
