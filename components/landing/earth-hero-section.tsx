@@ -44,23 +44,25 @@ export function EarthHeroSection() {
 
       {/* Content */}
       <div className={`relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 text-center transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}>
-        <div className="space-y-6 sm:space-y-8 mb-12 sm:mb-20">
-          <h2 className="text-xl sm:text-3xl lg:text-4xl font-sans font-light tracking-[0.3em] uppercase text-warm-white">
-            Every business runs on systems
-          </h2>
-          <h3 className="text-xl sm:text-3xl lg:text-4xl font-sans font-medium tracking-[0.3em] uppercase text-accent-gold">
-            The best ones run on intelligence
-          </h3>
+        <div className="flex flex-col gap-6 sm:gap-10 mb-12 sm:mb-20">
+          <div className="space-y-4 sm:space-y-6">
+            <h2 className="text-lg sm:text-2xl lg:text-4xl font-sans font-light tracking-[0.15em] sm:tracking-[0.3em] uppercase text-warm-white leading-relaxed">
+              Every business runs on systems
+            </h2>
+            <h3 className="text-lg sm:text-2xl lg:text-4xl font-sans font-medium tracking-[0.15em] sm:tracking-[0.3em] uppercase text-accent-gold leading-relaxed">
+              The best ones run on intelligence
+            </h3>
+          </div>
           
-          <div className="flex justify-center py-4">
-            <div className="w-48 sm:w-80 h-px bg-gradient-to-r from-transparent via-accent-gold to-transparent" />
+          <div className="flex justify-center py-2 sm:py-4">
+            <div className="w-32 sm:w-80 h-px bg-gradient-to-r from-transparent via-accent-gold to-transparent" />
           </div>
 
           <a 
             href="https://www.tranquilityintelligence.eu" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="block text-2xl sm:text-4xl lg:text-5xl font-sans font-medium tracking-wider text-warm-white hover:text-accent-gold transition-colors duration-500"
+            className="block text-xl sm:text-3xl lg:text-4xl font-sans font-medium tracking-wide text-warm-white hover:text-accent-gold transition-colors duration-500 break-all sm:break-normal"
           >
             www.tranquilityintelligence.eu
           </a>
