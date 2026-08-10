@@ -28,7 +28,7 @@ export function AIIntelligenceSection() {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.1 }
+      { threshold: 0.05 }
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -47,15 +47,15 @@ export function AIIntelligenceSection() {
           <span className="inline-flex items-center gap-2 sm:gap-3 text-xs sm:text-sm font-mono text-muted-foreground mb-4 sm:mb-6 tracking-widest uppercase">
             <span className="relative w-8 sm:w-12 h-px bg-foreground/10 overflow-hidden">
               <span 
-                className="absolute inset-0 bg-accent-gold transition-transform duration-1000 ease-out"
-                style={{ transform: isVisible ? 'translateX(0)' : 'translateX(-100%)', transitionDelay: '200ms' }}
+                className="absolute inset-0 bg-accent-gold transition-[transform] duration-1000 ease-out origin-left"
+                style={{ transform: isVisible ? 'scaleX(1)' : 'scaleX(0)', transitionDelay: '200ms' }}
               />
             </span>
             AI-Powered Intelligence
             <span className="relative w-8 sm:w-12 h-px bg-foreground/10 overflow-hidden">
               <span 
-                className="absolute inset-0 bg-accent-gold transition-transform duration-1000 ease-out"
-                style={{ transform: isVisible ? 'translateX(0)' : 'translateX(100%)', transitionDelay: '200ms' }}
+                className="absolute inset-0 bg-accent-gold transition-[transform] duration-1000 ease-out origin-right"
+                style={{ transform: isVisible ? 'scaleX(1)' : 'scaleX(0)', transitionDelay: '200ms' }}
               />
             </span>
           </span>

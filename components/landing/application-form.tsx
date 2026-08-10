@@ -21,7 +21,7 @@ export function ApplicationForm() {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.1 }
+      { threshold: 0.05 }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
@@ -64,8 +64,8 @@ export function ApplicationForm() {
           <h2 className="text-section-title font-display mb-8 leading-tight">Tell us about<br /><span className="text-accent-gold">your business.</span></h2>
           <div className="relative w-24 h-px bg-foreground/10 mx-auto mb-10 overflow-hidden">
             <span 
-              className="absolute inset-0 bg-accent-gold transition-transform duration-1000 ease-out"
-              style={{ transform: isVisible ? 'translateX(0)' : 'translateX(-100%)', transitionDelay: '400ms' }}
+              className="absolute inset-0 bg-accent-gold transition-[transform] duration-1000 ease-out origin-left"
+              style={{ transform: isVisible ? 'scaleX(1)' : 'scaleX(0)', transitionDelay: '400ms' }}
             />
           </div>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
