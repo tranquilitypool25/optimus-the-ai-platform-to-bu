@@ -163,7 +163,7 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.2 }
+      { threshold: 0.05 }
     );
     if (cardRef.current) observer.observe(cardRef.current);
     return () => observer.disconnect();
@@ -200,10 +200,10 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
       {/* Animated separator line */}
       <div className="absolute bottom-0 left-0 w-full h-px bg-foreground/10" />
       <div 
-        className="absolute bottom-0 left-0 h-px bg-accent-gold transition-all duration-1000 ease-out"
+        className="absolute bottom-0 left-0 h-px bg-accent-gold transition-[width] duration-1000 ease-out z-10"
         style={{ 
           width: isVisible ? "100%" : "0%",
-          transitionDelay: `${(index * 100) + 400}ms` 
+          transitionDelay: `${index * 150}ms` 
         }}
       />
     </div>
