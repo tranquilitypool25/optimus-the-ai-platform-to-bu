@@ -1,9 +1,57 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { AnimatedSphere } from "./animated-sphere";
+
+const capabilities = [
+  "Automate Workflows.",
+  "Qualify Leads 24/7.",
+  "Book Appointments.",
+  "Eliminate Bottlenecks.",
+  "Scale Operations.",
+  "Build Intelligence.",
+];
+
+function Typewriter() {
+  const [text, setText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+
+  const handleType = useCallback(() => {
+    const i = loopNum % capabilities.length;
+    const fullText = capabilities[i];
+
+    setText(
+      isDeleting
+        ? fullText.substring(0, text.length - 1)
+        : fullText.substring(0, text.length + 1)
+    );
+
+    setTypingSpeed(isDeleting ? 75 : 150);
+
+    if (!isDeleting && text === fullText) {
+      setTimeout(() => setIsDeleting(true), 2000);
+    } else if (isDeleting && text === "") {
+      setIsDeleting(false);
+      setLoopNum(loopNum + 1);
+    }
+  }, [isDeleting, loopNum, text]);
+
+  useEffect(() => {
+    const timer = setTimeout(handleType, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [handleType, typingSpeed]);
+
+  return (
+    <span className="inline-block min-w-[280px]">
+      <span className="text-accent-gold">{text}</span>
+      <span className="ml-1 inline-block w-1 h-8 sm:h-10 lg:h-12 bg-accent-gold animate-pulse align-middle" />
+    </span>
+  );
+}
 
 export function HeroSection() {
   const [mounted, setMounted] = useState(false);
@@ -22,7 +70,6 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-20 sm:py-32 lg:py-40">
-
         {/* Eyebrow */}
         <div
           className={`mb-6 sm:mb-8 transition-all duration-700 ${
@@ -31,9 +78,12 @@ export function HeroSection() {
         >
           <span className="inline-flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-muted-foreground font-sans tracking-wide">
             <span className="relative w-8 sm:w-12 h-px bg-foreground/10 overflow-hidden">
-              <span 
+              <span
                 className="absolute inset-0 bg-accent-gold transition-transform duration-1000 ease-out"
-                style={{ transform: isVisible ? 'translateX(0)' : 'translateX(-100%)', transitionDelay: '500ms' }}
+                style={{
+                  transform: isVisible ? "translateX(0)" : "translateX(-100%)",
+                  transitionDelay: "500ms",
+                }}
               />
             </span>
             Automate. Elevate. Dominate.
@@ -51,9 +101,9 @@ export function HeroSection() {
             }}
           >
             <span className="block text-foreground">Intelligence,</span>
-            <span className="block text-foreground">Built Into</span>
+            <span className="block text-foreground">Built To</span>
             <span className="block">
-              <span className="text-accent-gold">Your Business.</span>
+              <Typewriter />
             </span>
           </h1>
 
