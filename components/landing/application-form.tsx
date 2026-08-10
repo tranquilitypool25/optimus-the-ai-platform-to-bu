@@ -222,6 +222,14 @@ export function ApplicationForm() {
             Secure submission • personally reviewed within 48 hours
           </p>
         </form>
+
+        {/* Closing Slogan */}
+        <div className={`mt-20 text-center transition-all duration-1000 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className="w-20 h-px bg-gold-hairline mx-auto mb-8" />
+          <p className="text-xl sm:text-2xl lg:text-3xl font-display text-warm-white max-w-2xl mx-auto leading-tight italic">
+            "We build, manage and optimise everything. You focus on your business."
+          </p>
+        </div>
       </div>
     </section>
   );

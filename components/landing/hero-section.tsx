@@ -66,7 +66,7 @@ export function HeroSection() {
               transitionDelay: "300ms",
             }}
           >
-            We help ambitious businesses automate operations, eliminate bottlenecks, and build the intelligent systems they need to scale — without the guesswork.
+            We design, build and manage the intelligent systems that help your business capture more leads, automate repetitive work, and scale with confidence.
           </p>
         </div>
 
