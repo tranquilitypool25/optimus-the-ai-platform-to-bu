@@ -1,57 +1,9 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { AnimatedSphere } from "./animated-sphere";
-
-const capabilities = [
-  "Automate Workflows.",
-  "Qualify Leads 24/7.",
-  "Book Appointments.",
-  "Eliminate Bottlenecks.",
-  "Scale Operations.",
-  "Build Intelligence.",
-];
-
-function Typewriter() {
-  const [text, setText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [loopNum, setLoopNum] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(150);
-
-  const handleType = useCallback(() => {
-    const i = loopNum % capabilities.length;
-    const fullText = capabilities[i];
-
-    setText(
-      isDeleting
-        ? fullText.substring(0, text.length - 1)
-        : fullText.substring(0, text.length + 1)
-    );
-
-    setTypingSpeed(isDeleting ? 75 : 150);
-
-    if (!isDeleting && text === fullText) {
-      setTimeout(() => setIsDeleting(true), 2000);
-    } else if (isDeleting && text === "") {
-      setIsDeleting(false);
-      setLoopNum(loopNum + 1);
-    }
-  }, [isDeleting, loopNum, text]);
-
-  useEffect(() => {
-    const timer = setTimeout(handleType, typingSpeed);
-    return () => clearTimeout(timer);
-  }, [handleType, typingSpeed]);
-
-  return (
-    <span className="inline-block min-w-[280px]">
-      <span className="text-accent-gold">{text}</span>
-      <span className="ml-1 inline-block w-1 h-8 sm:h-10 lg:h-12 bg-accent-gold animate-pulse align-middle" />
-    </span>
-  );
-}
 
 export function HeroSection() {
   const [mounted, setMounted] = useState(false);
@@ -63,13 +15,13 @@ export function HeroSection() {
   const isVisible = mounted;
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+    <section className="relative min-h-[90vh] flex flex-col justify-start sm:justify-center overflow-hidden">
       {/* Animated sphere background - responsive sizing */}
       <div className="absolute -right-32 sm:-right-16 lg:right-0 top-1/2 -translate-y-1/2 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] lg:w-[800px] lg:h-[800px] opacity-30 sm:opacity-40 pointer-events-none">
         <AnimatedSphere />
       </div>
 
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-20 sm:py-32 lg:py-40">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 pt-28 sm:pt-32 lg:pt-40 pb-20">
         {/* Eyebrow */}
         <div
           className={`mb-6 sm:mb-8 transition-all duration-700 ${
@@ -101,10 +53,8 @@ export function HeroSection() {
             }}
           >
             <span className="block text-foreground">Intelligence,</span>
-            <span className="block text-foreground">Built To</span>
-            <span className="block">
-              <Typewriter />
-            </span>
+            <span className="block text-foreground">Built Into</span>
+            <span className="block text-accent-gold">Your Business.</span>
           </h1>
 
           {/* Brand Bio — one sentence that explains exactly what we do */}

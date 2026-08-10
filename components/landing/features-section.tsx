@@ -154,6 +154,30 @@ function AnimatedVisual({ type }: { type: string }) {
   }
 }
 
+function TypewriterTitle({ title, isVisible }: { title: string; isVisible: boolean }) {
+  const [text, setText] = useState("");
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (isVisible && index < title.length) {
+      const timeout = setTimeout(() => {
+        setText((prev) => prev + title[index]);
+        setIndex((prev) => prev + 1);
+      }, 50);
+      return () => clearTimeout(timeout);
+    }
+  }, [isVisible, index, title]);
+
+  return (
+    <h3 className="text-card-title font-display mb-3 sm:mb-4 group-hover:translate-x-2 transition-transform duration-500 text-foreground">
+      {text}
+      {isVisible && index < title.length && (
+        <span className="ml-1 inline-block w-1 h-6 sm:h-8 bg-accent-gold animate-pulse align-middle" />
+      )}
+    </h3>
+  );
+}
+
 function FeatureCard({ feature, index }: { feature: typeof features[0]; index: number }) {
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -183,9 +207,7 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
         </div>
         <div className="flex-1 grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
           <div>
-            <h3 className="text-card-title font-display mb-3 sm:mb-4 group-hover:translate-x-2 transition-transform duration-500 text-foreground">
-              {feature.title}
-            </h3>
+            <TypewriterTitle title={feature.title} isVisible={isVisible} />
             <p className="text-body text-muted-foreground leading-relaxed">
               {feature.description}
             </p>
@@ -234,7 +256,12 @@ export function FeaturesSection() {
       <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
         <div className="mb-12 sm:mb-16 lg:mb-24">
           <span className="inline-flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 font-sans tracking-wide">
-            <span className="w-6 sm:w-8 h-px bg-accent/60" />
+            <span className="relative w-8 sm:w-12 h-px bg-foreground/10 overflow-hidden">
+              <span 
+                className="absolute inset-0 bg-accent-gold transition-[transform] duration-1000 ease-out origin-left"
+                style={{ transform: isVisible ? 'scaleX(1)' : 'scaleX(0)', transitionDelay: '200ms' }}
+              />
+            </span>
             Why Tranquility Intelligence
           </span>
           <h2
