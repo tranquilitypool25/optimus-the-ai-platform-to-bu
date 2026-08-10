@@ -177,7 +177,7 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-16 py-8 sm:py-12 lg:py-20 border-b border-foreground/10">
+      <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-16 py-8 sm:py-12 lg:py-20">
         <div className="shrink-0">
           <span className="font-mono text-xs sm:text-sm text-muted-foreground tracking-wide">{feature.number}</span>
         </div>
@@ -197,6 +197,15 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
           </div>
         </div>
       </div>
+      {/* Animated separator line */}
+      <div className="absolute bottom-0 left-0 w-full h-px bg-foreground/10" />
+      <div 
+        className="absolute bottom-0 left-0 h-px bg-accent-gold transition-all duration-1000 ease-out"
+        style={{ 
+          width: isVisible ? "100%" : "0%",
+          transitionDelay: `${(index * 100) + 400}ms` 
+        }}
+      />
     </div>
   );
 }

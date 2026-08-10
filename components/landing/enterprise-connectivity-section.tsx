@@ -57,9 +57,19 @@ export function EnterpriseConnectivitySection() {
           }`}
         >
           <span className="inline-flex items-center gap-2 sm:gap-3 text-xs sm:text-sm font-mono text-muted-foreground mb-4 sm:mb-6 tracking-widest uppercase">
-            <span className="w-6 sm:w-8 h-px" style={{ backgroundColor: 'var(--champagne-gold)' }} />
+            <span className="relative w-8 sm:w-12 h-px bg-foreground/10 overflow-hidden">
+              <span 
+                className="absolute inset-0 bg-accent-gold transition-transform duration-1000 ease-out"
+                style={{ transform: isVisible ? 'translateX(0)' : 'translateX(-100%)', transitionDelay: '200ms' }}
+              />
+            </span>
             Enterprise Connectivity
-            <span className="w-6 sm:w-8 h-px" style={{ backgroundColor: 'var(--champagne-gold)' }} />
+            <span className="relative w-8 sm:w-12 h-px bg-foreground/10 overflow-hidden">
+              <span 
+                className="absolute inset-0 bg-accent-gold transition-transform duration-1000 ease-out"
+                style={{ transform: isVisible ? 'translateX(0)' : 'translateX(100%)', transitionDelay: '200ms' }}
+              />
+            </span>
           </span>
           <h2 className="text-section-title font-display mb-6 sm:mb-8 leading-tight">
             Connected to the world's

@@ -30,7 +30,12 @@ export function HeroSection() {
           }`}
         >
           <span className="inline-flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-muted-foreground font-sans tracking-wide">
-            <span className="w-6 sm:w-8 h-px bg-accent/60" />
+            <span className="relative w-8 sm:w-12 h-px bg-foreground/10 overflow-hidden">
+              <span 
+                className="absolute inset-0 bg-accent-gold transition-transform duration-1000 ease-out"
+                style={{ transform: isVisible ? 'translateX(0)' : 'translateX(-100%)', transitionDelay: '500ms' }}
+              />
+            </span>
             Automate. Elevate. Dominate.
           </span>
         </div>

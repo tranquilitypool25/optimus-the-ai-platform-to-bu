@@ -62,7 +62,12 @@ export function ApplicationForm() {
             <span className="text-[10px] sm:text-xs font-sans tracking-[0.2em] uppercase text-accent-gold">Priority Access Application</span>
           </div>
           <h2 className="text-section-title font-display mb-8 leading-tight">Tell us about<br /><span className="text-accent-gold">your business.</span></h2>
-          <div className="w-20 h-px bg-gold-hairline mx-auto mb-10" />
+          <div className="relative w-24 h-px bg-foreground/10 mx-auto mb-10 overflow-hidden">
+            <span 
+              className="absolute inset-0 bg-accent-gold transition-transform duration-1000 ease-out"
+              style={{ transform: isVisible ? 'translateX(0)' : 'translateX(-100%)', transitionDelay: '400ms' }}
+            />
+          </div>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Complete the application below. Every submission is personally reviewed — if we believe we&apos;re the right fit, we&apos;ll be in touch within 48 hours to arrange a discovery consultation.
           </p>
