@@ -13,7 +13,6 @@ export function SelectivitySection() {
       },
       { threshold: 0.2 }
     );
-
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
@@ -27,28 +26,23 @@ export function SelectivitySection() {
           }`}
         >
           <h2 className="text-section-title font-display mb-6 sm:mb-8 leading-tight">
-            We don't work
+            We don&apos;t work
             <br />
             <span className="text-accent-gold">with everyone.</span>
           </h2>
 
           <div className="space-y-4 sm:space-y-6 mb-8 sm:mb-12">
             <p className="text-body text-muted-foreground">
-              We intentionally limit the number of active projects we undertake to ensure every client receives the strategic focus, attention, and long-term support they deserve.
+              We intentionally limit the number of active projects we take on. This is how we guarantee that every client receives the strategic focus, hands-on attention, and long-term support their business deserves.
             </p>
 
             <p className="text-body text-muted-foreground">
-              We partner with ambitious businesses committed to long-term growth. Every project is carefully selected to ensure we can deliver exceptional results and maintain the highest level of service.
-            </p>
-
-            <p className="text-body text-muted-foreground">
-              If you're looking for a strategic technology partner rather than just another software provider, we'd love to hear from you.
+              We partner with ambitious businesses that are serious about long-term growth — not quick fixes. If you&apos;re looking for a strategic technology partner rather than just another software vendor, we&apos;d love to hear from you.
             </p>
           </div>
 
-          {/* Call to action text */}
-          <p className="text-sm sm:text-base text-accent-gold font-medium">
-            Apply below.
+          <p className="text-sm sm:text-base text-accent-gold font-medium tracking-wide">
+            Limited availability. Apply below.
           </p>
         </div>
       </div>

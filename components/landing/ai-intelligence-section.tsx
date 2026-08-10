@@ -54,6 +54,9 @@ export function AIIntelligenceSection() {
             <br />
             <span className="text-accent-gold">built for your business.</span>
           </h2>
+          <p className="text-body text-muted-foreground max-w-2xl mx-auto">
+            From AI receptionists that never sleep to automated workflows that eliminate manual tasks — every capability is deployed to save your team time and drive measurable results.
+          </p>
         </div>
 
         {/* Capabilities Grid */}

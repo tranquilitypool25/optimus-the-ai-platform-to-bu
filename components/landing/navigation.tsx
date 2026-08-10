@@ -28,14 +28,14 @@ export function Navigation() {
     <header
       className={`fixed z-50 transition-all duration-500 ${isScrolled ? "top-2 sm:top-4 left-2 sm:left-4 right-2 sm:right-4" : "top-0 left-0 right-0"}`}
     >
-      <nav 
+      <nav
         className={`mx-auto transition-all duration-500 ${
           isScrolled || isMobileMenuOpen
             ? "bg-card/90 backdrop-blur-xl border border-border/30 rounded-xl sm:rounded-2xl shadow-lg max-w-[1200px]"
             : "bg-transparent max-w-[1400px]"
         }`}
       >
-        <div 
+        <div
           className={`flex items-center justify-between transition-all duration-500 px-4 sm:px-6 lg:px-8 ${isScrolled ? "h-12 sm:h-14" : "h-16 sm:h-20"}`}
         >
           {/* Logo */}
@@ -64,8 +64,9 @@ export function Navigation() {
             <Button
               size="sm"
               className={`bg-accent hover:bg-accent/90 text-accent-foreground rounded-full transition-all duration-500 font-sans font-medium ${isScrolled ? "px-3 lg:px-4 h-8 text-xs" : "px-4 lg:px-6 h-9 text-sm"}`}
+              onClick={() => document.getElementById("apply")?.scrollIntoView({ behavior: "smooth" })}
             >
-              Start creating
+              Apply for Access
             </Button>
           </div>
 
@@ -82,14 +83,13 @@ export function Navigation() {
             )}
           </button>
         </div>
-
       </nav>
-      
+
       {/* Mobile Menu - Full Screen Overlay */}
       <div
         className={`md:hidden fixed inset-0 bg-background z-40 transition-all duration-500 ${
-          isMobileMenuOpen 
-            ? "opacity-100 pointer-events-auto" 
+          isMobileMenuOpen
+            ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
         style={{ top: 0 }}
@@ -103,8 +103,8 @@ export function Navigation() {
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`text-3xl sm:text-5xl font-display text-foreground hover:text-accent transition-all duration-500 ${
-                  isMobileMenuOpen 
-                    ? "opacity-100 translate-y-0" 
+                  isMobileMenuOpen
+                    ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"
                 }`}
                 style={{ transitionDelay: isMobileMenuOpen ? `${i * 75}ms` : "0ms" }}
@@ -113,27 +113,24 @@ export function Navigation() {
               </a>
             ))}
           </div>
-          
+
           {/* Bottom CTAs */}
-          <div className={`flex flex-col sm:flex-row gap-3 sm:gap-4 pt-6 sm:pt-8 border-t border-foreground/10 transition-all duration-500 ${
-            isMobileMenuOpen 
-              ? "opacity-100 translate-y-0" 
-              : "opacity-0 translate-y-4"
-          }`}
-          style={{ transitionDelay: isMobileMenuOpen ? "300ms" : "0ms" }}
+          <div
+            className={`flex flex-col sm:flex-row gap-3 sm:gap-4 pt-6 sm:pt-8 border-t border-foreground/10 transition-all duration-500 ${
+              isMobileMenuOpen
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
+            }`}
+            style={{ transitionDelay: isMobileMenuOpen ? "300ms" : "0ms" }}
           >
-            <Button 
-              variant="outline" 
-              className="flex-1 rounded-lg sm:rounded-full h-12 sm:h-14 text-sm sm:text-base font-sans font-medium"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Sign in
-            </Button>
-            <Button 
+            <Button
               className="flex-1 bg-accent text-accent-foreground rounded-lg sm:rounded-full h-12 sm:h-14 text-sm sm:text-base font-sans font-medium hover:bg-accent/90 transition-all duration-300"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                document.getElementById("apply")?.scrollIntoView({ behavior: "smooth" });
+              }}
             >
-              Start creating
+              Apply for Access
             </Button>
           </div>
         </div>

@@ -59,17 +59,12 @@ export function ApplicationForm() {
         {/* Header Section */}
         <div className={`text-center mb-12 sm:mb-20 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="inline-block px-4 py-1 border border-gold-hairline mb-6">
-            <span className="text-[10px] sm:text-xs font-sans tracking-[0.2em] uppercase text-accent-gold">Limited Availability</span>
+            <span className="text-[10px] sm:text-xs font-sans tracking-[0.2em] uppercase text-accent-gold">Priority Access Application</span>
           </div>
-          <p className="text-[10px] sm:text-xs font-sans tracking-[0.3em] uppercase text-muted-foreground mb-6">Priority Access Application</p>
-          <h2 className="text-section-title font-display mb-8 leading-tight">Apply for Priority Access</h2>
+          <h2 className="text-section-title font-display mb-8 leading-tight">Tell us about<br /><span className="text-accent-gold">your business.</span></h2>
           <div className="w-20 h-px bg-gold-hairline mx-auto mb-10" />
-          
-          <p className="text-body text-warm-white max-w-2xl mx-auto mb-6">
-            Helping ambitious businesses automate operations, improve efficiency, and create scalable systems for growth.
-          </p>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            We intentionally limit the number of active projects we undertake to ensure every client receives the strategic focus, attention, and long-term support they deserve. Complete the application below and we'll review whether we're the right fit for your business.
+            Complete the application below. Every submission is personally reviewed — if we believe we&apos;re the right fit, we&apos;ll be in touch within 48 hours to arrange a discovery consultation.
           </p>
         </div>
 

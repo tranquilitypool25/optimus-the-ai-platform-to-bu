@@ -51,11 +51,8 @@ export function CustomSoftwareSection() {
             <br />
             <span className="text-accent-gold">Your Business.</span>
           </h2>
-          <p className="text-body text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-12">
-            Not every business fits inside off-the-shelf software. That's why we design and develop custom applications, portals and intelligent systems tailored specifically to your operations, workflows and long-term vision.
-          </p>
           <p className="text-body text-muted-foreground max-w-2xl mx-auto">
-            Whether you need a customer portal, booking platform, field service app, inventory system, internal dashboard or an AI-powered business platform, we create software that works the way your business works.
+            Off-the-shelf software wasn&apos;t built for your business. We design and develop custom applications, portals, and intelligent systems tailored to your exact operations — whether that&apos;s a customer portal, booking platform, field service app, internal dashboard, or a fully AI-powered business platform.
           </p>
         </div>
 

@@ -97,7 +97,7 @@ export function FooterSection() {
         {/* Bottom Bar */}
         <div className="py-6 sm:py-8 border-t border-foreground/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs sm:text-sm text-muted-foreground font-sans">
-            © 2025 Tranquility Intelligence. All rights reserved.
+            © 2026 Tranquility Intelligence. All rights reserved.
           </p>
 
           <div className="flex items-center gap-4 text-xs sm:text-sm text-muted-foreground">

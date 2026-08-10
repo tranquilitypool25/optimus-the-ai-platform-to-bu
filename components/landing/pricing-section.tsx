@@ -4,8 +4,9 @@ import { ArrowRight, Check } from "lucide-react";
 
 const plans = [
   {
+    number: "01",
     name: "Foundation",
-    description: "Essential AI automation for small businesses",
+    description: "Essential AI automation and systems for small businesses ready to grow.",
     features: [
       "Core Workflow Automation",
       "Single AI Assistant Deployment",
@@ -17,8 +18,9 @@ const plans = [
     popular: false,
   },
   {
+    number: "02",
     name: "Growth",
-    description: "Comprehensive systems for scaling companies",
+    description: "Comprehensive, connected systems for scaling companies that need more.",
     features: [
       "Multi-System Integration",
       "Custom AI Agents & Tools",
@@ -31,8 +33,9 @@ const plans = [
     popular: true,
   },
   {
+    number: "03",
     name: "Enterprise",
-    description: "Full-scale transformation for industry leaders",
+    description: "Full-scale intelligent transformation for industry leaders.",
     features: [
       "Everything in Growth",
       "Bespoke Software Development",
@@ -47,6 +50,10 @@ const plans = [
 ];
 
 export function PricingSection() {
+  const scrollToApply = () => {
+    document.getElementById("apply")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section id="pricing" className="relative py-16 sm:py-24 lg:py-32 xl:py-40 border-t border-foreground/10">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
@@ -61,13 +68,13 @@ export function PricingSection() {
             <span className="text-accent-gold">outcomes</span>
           </h2>
           <p className="text-body text-muted-foreground max-w-xl">
-            Strategic automation designed to scale your business. Choose the level of support that fits your goals.
+            Every engagement is scoped to your specific goals. Choose the level of support that fits where your business is today — and where you want it to go.
           </p>
         </div>
 
         {/* Pricing Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-foreground/10">
-          {plans.map((plan, idx) => (
+          {plans.map((plan) => (
             <div
               key={plan.name}
               className={`relative p-6 sm:p-8 lg:p-12 bg-background ${
@@ -83,7 +90,7 @@ export function PricingSection() {
               {/* Plan Header */}
               <div className="mb-6 sm:mb-8">
                 <span className="font-mono text-xs text-muted-foreground tracking-wide">
-                  {String(idx + 1).padStart(2, "0")}
+                  {plan.number}
                 </span>
                 <h3 className="text-card-title font-display text-foreground mt-2">{plan.name}</h3>
                 <p className="text-xs sm:text-sm text-muted-foreground mt-2">{plan.description}</p>
@@ -106,6 +113,7 @@ export function PricingSection() {
 
               {/* CTA */}
               <button
+                onClick={scrollToApply}
                 className={`w-full py-3 sm:py-4 flex items-center justify-center gap-2 text-xs sm:text-sm font-medium transition-all group rounded-lg sm:rounded-full ${
                   plan.popular
                     ? "bg-accent text-accent-foreground hover:bg-accent/90"
@@ -121,10 +129,7 @@ export function PricingSection() {
 
         {/* Bottom Note */}
         <p className="mt-8 sm:mt-12 text-center text-xs sm:text-sm text-muted-foreground">
-          All plans include automatic updates, HTTPS, and DDoS protection.{" "}
-          <a href="#" className="underline underline-offset-4 hover:text-accent transition-colors font-sans">
-            Compare all features
-          </a>
+          All plans include automatic updates, HTTPS, and DDoS protection. Pricing is bespoke — apply below and we&apos;ll scope a solution around your needs.
         </p>
       </div>
     </section>

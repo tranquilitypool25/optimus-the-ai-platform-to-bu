@@ -4,32 +4,32 @@ import { useEffect, useState } from "react";
 
 const testimonials = [
   {
-    quote: "Optimus transformed our deployment pipeline. What used to take hours now happens in seconds.",
+    quote: "Tranquility Intelligence transformed how we handle client enquiries. Our AI assistant now qualifies leads 24/7 — we wake up to booked appointments every morning.",
     author: "Sarah Chen",
-    role: "CTO",
-    company: "Meridian Labs",
-    metric: "10x faster deployments",
+    role: "Founder & CEO",
+    company: "Meridian Consulting",
+    metric: "3x more qualified leads",
   },
   {
-    quote: "The developer experience is unmatched. Our team's productivity has never been higher.",
+    quote: "The custom dashboard they built replaced three separate tools we were paying for. Our team has everything they need in one place and we've cut admin time in half.",
     author: "Marcus Webb",
-    role: "Engineering Lead",
-    company: "Flux Systems",
-    metric: "40% more features shipped",
+    role: "Operations Director",
+    company: "Flux Property Group",
+    metric: "50% reduction in admin time",
   },
   {
-    quote: "Finally, infrastructure that scales with our ambition. Zero downtime since we switched.",
+    quote: "We were sceptical about AI automation, but the results speak for themselves. Our follow-up process is now fully automated and conversion rates have never been higher.",
     author: "Elena Rodriguez",
-    role: "VP Engineering",
-    company: "Beacon AI",
-    metric: "99.99% uptime",
+    role: "Head of Sales",
+    company: "Beacon Financial",
+    metric: "2x increase in conversions",
   },
   {
-    quote: "The integrations are seamless. We connected our entire stack in a single afternoon.",
+    quote: "From strategy to delivery, the team at Tranquility Intelligence understood our business immediately. The system they built has become the backbone of how we operate.",
     author: "James Liu",
-    role: "Founder",
-    company: "Prism Analytics",
-    metric: "50+ integrations used",
+    role: "Managing Director",
+    company: "Atlas Digital Group",
+    metric: "Full operations automated",
   },
 ];
 
@@ -148,7 +148,7 @@ export function TestimonialsSection() {
         <div className="flex gap-16 items-center marquee">
           {[...Array(2)].map((_, setIdx) => (
             <div key={setIdx} className="flex gap-16 items-center shrink-0">
-              {["Meridian Labs", "Flux Systems", "Beacon AI", "Prism Analytics", "Nova Tech", "Quantum Corp", "Atlas Digital", "Vertex Labs"].map(
+              {["Meridian Consulting", "Flux Property Group", "Beacon Financial", "Atlas Digital Group", "Nova Ventures", "Quantum Corp", "Vertex Partners", "Summit Group"].map(
                 (company) => (
                   <span
                     key={`${setIdx}-${company}`}
