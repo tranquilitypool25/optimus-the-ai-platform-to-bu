@@ -1,32 +1,25 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { Shield, Lock, Eye, FileCheck } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Shield, Lock, Eye, CheckCircle } from "lucide-react";
 
 const securityFeatures = [
   {
-    icon: Shield,
-    title: "SOC 2 Type II",
-    description: "Independently audited security controls with continuous monitoring.",
+    title: "Enterprise-Grade Security",
+    description: "We implement multi-layer security protocols to protect your business data and customer information.",
+    icon: Shield
   },
   {
-    icon: Lock,
-    title: "End-to-end encryption",
-    description: "AES-256 encryption for data at rest and TLS 1.3 in transit.",
+    title: "Data Privacy First",
+    description: "Your data is yours. We build systems that prioritize privacy and comply with global standards.",
+    icon: Lock
   },
   {
-    icon: Eye,
-    title: "Zero-trust architecture",
-    description: "Every request is authenticated and authorized. No exceptions.",
-  },
-  {
-    icon: FileCheck,
-    title: "GDPR & HIPAA",
-    description: "Full compliance with data protection and healthcare regulations.",
-  },
+    title: "Transparent Systems",
+    description: "No black boxes. We build clear, auditable workflows so you always know how your data is being used.",
+    icon: Eye
+  }
 ];
-
-const certifications = ["SOC 2", "ISO 27001", "HIPAA", "GDPR", "CCPA"];
 
 export function SecuritySection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -39,74 +32,61 @@ export function SecuritySection() {
       },
       { threshold: 0.1 }
     );
-
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section id="security" ref={sectionRef} className="relative py-24 lg:py-32 bg-foreground/[0.02] overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-          {/* Left: Content */}
-          <div
-            className={`transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-          >
-            <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
-              <span className="w-8 h-px bg-foreground/30" />
-              Security
+    <section id="security" ref={sectionRef} className="relative py-24 lg:py-32 bg-midnight-navy overflow-hidden border-t border-foreground/5">
+      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-12"}`}>
+            <span className="eyebrow mb-6">
+              <span className="eyebrow-line" />
+              Trust & Reliability
             </span>
-            <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-8">
-              Trust is
-              <br />
-              non-negotiable.
+            <h2 className="text-section-title font-display mb-8 leading-tight text-foreground">
+              Technology you can <br />
+              <span className="text-accent-gold">rely on.</span>
             </h2>
-            <p className="text-xl text-muted-foreground leading-relaxed mb-12">
-              Enterprise-grade security isn&apos;t optional. It&apos;s built into every layer 
-              of our platform, from infrastructure to application.
+            <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-xl">
+              NEXORA builds robust, secure, and scalable systems designed to protect your business as it grows. We take security as seriously as you do.
             </p>
-
-            {/* Certifications */}
-            <div className="flex flex-wrap gap-3">
-              {certifications.map((cert, index) => (
-                <span
-                  key={cert}
-                  className={`px-4 py-2 border border-foreground/10 text-sm font-mono transition-all duration-500 ${
-                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                  }`}
-                  style={{ transitionDelay: `${index * 50 + 200}ms` }}
-                >
-                  {cert}
-                </span>
+            <div className="space-y-4">
+              {["End-to-end encryption", "Regular security audits", "Compliant data handling", "Secure cloud infrastructure"].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 text-warm-white/80">
+                  <CheckCircle className="w-5 h-5 text-accent-gold" />
+                  <span className="font-sans">{item}</span>
+                </div>
               ))}
             </div>
           </div>
-
-          {/* Right: Features */}
-          <div className="grid gap-6">
-            {securityFeatures.map((feature, index) => (
-              <div
-                key={feature.title}
-                className={`p-6 border border-foreground/10 hover:border-foreground/20 transition-all duration-500 group ${
-                  isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
-                }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="shrink-0 w-10 h-10 flex items-center justify-center border border-foreground/10 group-hover:bg-foreground group-hover:text-background transition-colors duration-300">
-                    <feature.icon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium mb-1 group-hover:translate-x-1 transition-transform duration-300">
-                      {feature.title}
-                    </h3>
-                    <p className="text-muted-foreground">{feature.description}</p>
+          
+          <div className="grid grid-cols-1 gap-6">
+            {securityFeatures.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div
+                  key={index}
+                  className={`p-8 rounded-2xl border border-foreground/5 bg-navy-surface/30 transition-all duration-700 ${
+                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                  }`}
+                  style={{ transitionDelay: `${index * 150}ms` }}
+                >
+                  <div className="flex items-start gap-6">
+                    <div className="p-3 rounded-xl bg-accent-gold/10 border border-accent-gold/20">
+                      <Icon className="w-6 h-6 text-accent-gold" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-display text-foreground mb-3">{feature.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

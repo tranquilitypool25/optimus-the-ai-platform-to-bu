@@ -1,6 +1,14 @@
 import { Navigation } from "@/components/landing/navigation";
 import { HeroSection } from "@/components/landing/hero-section";
+import { ProblemSection } from "@/components/landing/problem-section";
 import { ServicesSection } from "@/components/landing/services-section";
+import { DifferentiatorSection } from "@/components/landing/differentiator-section";
+import { BenefitsSection } from "@/components/landing/benefits-section";
+import { CustomerJourneySection } from "@/components/landing/customer-journey-section";
+import { HowItWorksSection } from "@/components/landing/how-it-works-section";
+import { CustomSoftwareSection } from "@/components/landing/custom-software-section";
+import { PhilosophySection } from "@/components/landing/philosophy-section";
+import { FutureSection } from "@/components/landing/future-section";
 import { ProjectsSection } from "@/components/landing/projects-section";
 import { SecuritySection } from "@/components/landing/security-section";
 import { TestimonialsSection } from "@/components/landing/testimonials-section";
@@ -16,22 +24,46 @@ export default function Home() {
       {/* 1. Hero */}
       <HeroSection />
 
-      {/* 2. New Services Section - replacing features/connectivity */}
+      {/* 2. Problem Section */}
+      <ProblemSection />
+
+      {/* 3. Services Pillars (GROW, AUTOMATE, BUILD) */}
       <ServicesSection />
 
-      {/* 3. Projects Section - highlighting specific apps */}
+      {/* 4. Differentiator */}
+      <DifferentiatorSection />
+
+      {/* 5. Benefits */}
+      <BenefitsSection />
+
+      {/* 6. Customer Journey */}
+      <CustomerJourneySection />
+
+      {/* 7. How It Works */}
+      <HowItWorksSection />
+
+      {/* 8. Custom Software */}
+      <CustomSoftwareSection />
+
+      {/* 9. Philosophy */}
+      <PhilosophySection />
+
+      {/* 10. Future */}
+      <FutureSection />
+
+      {/* 11. Projects */}
       <ProjectsSection />
 
-      {/* 4. Security - data protection & trust */}
+      {/* 12. Security */}
       <SecuritySection />
 
-      {/* 5. Social Proof */}
+      {/* 13. Testimonials */}
       <TestimonialsSection />
 
-      {/* 6. Application Form with new slogan */}
+      {/* 14. Application Form */}
       <ApplicationForm />
 
-      {/* 7. Closing & Footer */}
+      {/* 15. Closing & Footer */}
       <EarthHeroSection />
       <FooterSection />
     </main>

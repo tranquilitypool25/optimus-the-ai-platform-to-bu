@@ -1,165 +1,97 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "Tranquility Intelligence transformed how we handle client enquiries. Our AI assistant now qualifies leads 24/7 — we wake up to booked appointments every morning.",
+    quote: "NEXORA didn't just give us software; they gave us a scalable way to operate. Our customer response time dropped from hours to seconds.",
     author: "Sarah Chen",
-    role: "Founder & CEO",
-    company: "Meridian Consulting",
-    metric: "3x more qualified leads",
+    position: "Operations Director, Lumina Group",
   },
   {
-    quote: "The custom dashboard they built replaced three separate tools we were paying for. Our team has everything they need in one place and we've cut admin time in half.",
-    author: "Marcus Webb",
-    role: "Operations Director",
-    company: "Flux Property Group",
-    metric: "50% reduction in admin time",
+    quote: "The custom portal NEXORA built for our field team has completely removed our manual admin bottleneck. We're finally ready to scale.",
+    author: "Marcus Thorne",
+    position: "Founder, Apex Logistics",
   },
   {
-    quote: "We were sceptical about AI automation, but the results speak for themselves. Our follow-up process is now fully automated and conversion rates have never been higher.",
+    quote: "Connected technology that actually fits how we work. The ROI was clear within the first month of implementation.",
     author: "Elena Rodriguez",
-    role: "Head of Sales",
-    company: "Beacon Financial",
-    metric: "2x increase in conversions",
-  },
-  {
-    quote: "From strategy to delivery, the team at Tranquility Intelligence understood our business immediately. The system they built has become the backbone of how we operate.",
-    author: "James Liu",
-    role: "Managing Director",
-    company: "Atlas Digital Group",
-    metric: "Full operations automated",
+    position: "CEO, Vento Systems",
   },
 ];
 
+const companies = ["Lumina", "Apex", "Vento", "Stellar", "Orbit", "Nexus", "Summit", "Vertex"];
+
 export function TestimonialsSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsAnimating(true);
-      setTimeout(() => {
-        setActiveIndex((prev) => (prev + 1) % testimonials.length);
-        setIsAnimating(false);
-      }, 300);
-    }, 5000);
-    return () => clearInterval(interval);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true);
+      },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
   }, []);
 
-  const activeTestimonial = testimonials[activeIndex];
-
   return (
-    <section className="relative py-32 lg:py-40 border-t border-foreground/10 lg:pb-14">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        {/* Section Label */}
-        <div className="flex items-center gap-4 mb-16">
-          <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
-            What people say
+    <section id="testimonials" ref={sectionRef} className="relative py-24 lg:py-32 bg-obsidian overflow-hidden border-t border-foreground/5">
+      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
+        <div className={`text-center mb-16 sm:mb-24 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <span className="eyebrow mb-6">
+            <span className="eyebrow-line" />
+            Social Proof
           </span>
-          <div className="flex-1 h-px bg-foreground/10" />
-          <span className="font-mono text-xs text-muted-foreground">
-            {String(activeIndex + 1).padStart(2, "0")} / {String(testimonials.length).padStart(2, "0")}
-          </span>
+          <h2 className="text-section-title font-display mb-6 leading-tight text-foreground">
+            Better Systems. <br />
+            <span className="text-accent-gold">Better Business.</span>
+          </h2>
         </div>
 
-        {/* Main Quote */}
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
-          <div className="lg:col-span-8">
-            <blockquote
-              className={`transition-all duration-300 ${
-                isAnimating ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
-              }`}
-            >
-              <p className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight text-foreground">
-                "{activeTestimonial.quote}"
-              </p>
-            </blockquote>
-
-            {/* Author */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+          {testimonials.map((t, index) => (
             <div
-              className={`mt-12 flex items-center gap-6 transition-all duration-300 delay-100 ${
-                isAnimating ? "opacity-0" : "opacity-100"
+              key={index}
+              className={`p-10 rounded-2xl border border-foreground/5 bg-navy-surface/20 transition-all duration-700 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
               }`}
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="w-16 h-16 rounded-full bg-foreground/5 border border-foreground/10 flex items-center justify-center">
-                <span className="font-display text-2xl text-foreground">
-                  {activeTestimonial.author.charAt(0)}
-                </span>
-              </div>
+              <Quote className="w-8 h-8 text-accent-gold/20 mb-6" />
+              <p className="text-lg text-warm-white/90 leading-relaxed mb-8 italic">
+                "{t.quote}"
+              </p>
               <div>
-                <p className="text-lg font-medium text-foreground">{activeTestimonial.author}</p>
-                <p className="text-muted-foreground">
-                  {activeTestimonial.role}, {activeTestimonial.company}
-                </p>
+                <p className="font-display text-foreground">{t.author}</p>
+                <p className="text-xs text-muted-foreground tracking-widest uppercase mt-1">{t.position}</p>
               </div>
             </div>
-          </div>
+          ))}
+        </div>
 
-          {/* Metric Highlight */}
-          <div className="lg:col-span-4 flex flex-col justify-center">
-            <div
-              className={`p-8 border border-foreground/10 transition-all duration-300 ${
-                isAnimating ? "opacity-0 scale-95" : "opacity-100 scale-100"
-              }`}
-            >
-              <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase block mb-4">
-                Key Result
-              </span>
-              <p className="font-display text-3xl md:text-4xl text-foreground">
-                {activeTestimonial.metric}
-              </p>
-            </div>
-
-            {/* Navigation Dots */}
-            <div className="flex gap-2 mt-8">
-              {testimonials.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => {
-                    setIsAnimating(true);
-                    setTimeout(() => {
-                      setActiveIndex(idx);
-                      setIsAnimating(false);
-                    }, 300);
-                  }}
-                  className={`h-2 transition-all duration-300 ${
-                    idx === activeIndex
-                      ? "w-8 bg-foreground"
-                      : "w-2 bg-foreground/20 hover:bg-foreground/40"
-                  }`}
-                />
+        {/* Trusted by marquee - PRESERVED ANIMATION */}
+        <div className={`pt-20 border-t border-foreground/5 transition-all duration-1000 delay-500 ${isVisible ? "opacity-100" : "opacity-0"}`}>
+          <p className="text-center text-[10px] font-mono tracking-[0.4em] text-muted-foreground uppercase mb-12">Trusted by ambitious businesses</p>
+          <div className="w-full overflow-hidden">
+            <div className="flex gap-16 items-center marquee">
+              {[...Array(2)].map((_, setIdx) => (
+                <div key={setIdx} className="flex gap-16 items-center shrink-0">
+                  {companies.map((company) => (
+                    <span
+                      key={`${setIdx}-${company}`}
+                      className="font-display text-xl md:text-2xl text-foreground/30 whitespace-nowrap hover:text-foreground transition-colors duration-300"
+                    >
+                      {company}
+                    </span>
+                  ))}
+                </div>
               ))}
             </div>
           </div>
-        </div>
-
-        {/* Company Logos Marquee Label */}
-        <div className="mt-24 pt-12 border-t border-foreground/10">
-          <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase mb-8 text-center">
-            Trusted by forward-thinking teams
-          </p>
-        </div>
-      </div>
-      
-      {/* Full-width marquee outside container */}
-      <div className="w-full">
-        <div className="flex gap-16 items-center marquee">
-          {[...Array(2)].map((_, setIdx) => (
-            <div key={setIdx} className="flex gap-16 items-center shrink-0">
-              {["Meridian Consulting", "Flux Property Group", "Beacon Financial", "Atlas Digital Group", "Nova Ventures", "Quantum Corp", "Vertex Partners", "Summit Group"].map(
-                (company) => (
-                  <span
-                    key={`${setIdx}-${company}`}
-                    className="font-display text-xl md:text-2xl text-foreground/30 whitespace-nowrap hover:text-foreground transition-colors duration-300"
-                  >
-                    {company}
-                  </span>
-                )
-              )}
-            </div>
-          ))}
         </div>
       </div>
     </section>

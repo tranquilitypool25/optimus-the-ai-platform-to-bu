@@ -1,19 +1,18 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { Smartphone, Globe, BarChart3, Calendar, Package, Users, Bot, Building2, Truck, Zap } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
-const softwareFeatures = [
-  { title: "Mobile Apps", icon: Smartphone },
-  { title: "Customer Portals", icon: Globe },
-  { title: "Internal Dashboards", icon: BarChart3 },
-  { title: "Booking Platforms", icon: Calendar },
-  { title: "Inventory Systems", icon: Package },
-  { title: "CRM Systems", icon: Users },
-  { title: "AI Assistants", icon: Bot },
-  { title: "Property Management", icon: Building2 },
-  { title: "Field Service Software", icon: Truck },
-  { title: "Business Automations", icon: Zap },
+const examples = [
+  "Customer portals",
+  "Staff apps",
+  "Inventory systems",
+  "Field-service platforms",
+  "Booking platforms",
+  "Operational dashboards",
+  "Internal management systems",
+  "Custom workflows"
 ];
 
 export function CustomSoftwareSection() {
@@ -27,88 +26,55 @@ export function CustomSoftwareSection() {
       },
       { threshold: 0.1 }
     );
-
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section id="custom-software" ref={sectionRef} className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
+    <section id="custom-software" ref={sectionRef} className="relative py-24 lg:py-32 bg-obsidian overflow-hidden border-t border-foreground/5">
       <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
-        {/* Header */}
-        <div
-          className={`text-center max-w-3xl mx-auto mb-12 sm:mb-16 lg:mb-20 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <span className="inline-flex items-center gap-2 sm:gap-3 text-xs sm:text-sm font-mono text-muted-foreground mb-4 sm:mb-6 tracking-widest uppercase">
-            <span className="w-6 sm:w-8 h-px" style={{ backgroundColor: 'var(--champagne-gold)' }} />
-            Custom Software
-            <span className="w-6 sm:w-8 h-px" style={{ backgroundColor: 'var(--champagne-gold)' }} />
-          </span>
-          <h2 className="text-section-title font-display mb-6 sm:mb-8 leading-tight">
-            Built Around
-            <br />
-            <span className="text-accent-gold">Your Business.</span>
-          </h2>
-          <p className="text-body text-muted-foreground max-w-2xl mx-auto">
-            Off-the-shelf software wasn&apos;t built for your business. We design and develop custom applications, portals, and intelligent systems tailored to your exact operations — whether that&apos;s a customer portal, booking platform, field service app, internal dashboard, or a fully AI-powered business platform.
-          </p>
-        </div>
-
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8">
-          {softwareFeatures.map((feature, index) => {
-            const Icon = feature.icon;
-            return (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+          <div className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}`}>
+            <span className="eyebrow mb-6">
+              <span className="eyebrow-line" />
+              Bespoke Development
+            </span>
+            <h2 className="text-section-title font-display mb-8 leading-tight text-foreground">
+              When Off-The-Shelf <br />
+              <span className="text-accent-gold">Isn’t Enough.</span>
+            </h2>
+            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed mb-10">
+              <p>
+                Not every business can be improved by simply adding another piece of software. Sometimes the right system doesn’t exist yet.
+              </p>
+              <p>
+                NEXORA builds web applications, mobile apps and internal platforms designed around real business operations. We build technology around the way you actually work.
+              </p>
+            </div>
+            <Button
+              size="lg"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-8 h-14 text-base font-bold group"
+              onClick={() => document.getElementById("apply")?.scrollIntoView({ behavior: "smooth" })}
+            >
+              Discuss Your Idea
+              <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {examples.map((example, index) => (
               <div
                 key={index}
-                className={`group relative transition-all duration-700 ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-8"
+                className={`p-6 rounded-xl border border-foreground/5 bg-navy-surface/30 flex items-center gap-4 transition-all duration-700 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
-                style={{ transitionDelay: `${index * 40}ms` }}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div
-                  className="relative p-6 sm:p-8 rounded-lg border transition-all duration-300 hover:shadow-lg text-center"
-                  style={{
-                    borderColor: 'var(--navy-border)',
-                    backgroundColor: 'rgba(13, 27, 42, 0.6)',
-                  }}
-                >
-                  <div className="flex justify-center mb-4 sm:mb-6">
-                    <div
-                      className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-                      style={{
-                        backgroundColor: 'rgba(200, 164, 93, 0.1)',
-                        borderColor: 'var(--gold-hairline)',
-                        borderWidth: '1px',
-                      }}
-                    >
-                      <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-accent-gold" />
-                    </div>
-                  </div>
-                  <h3 className="text-sm sm:text-base font-medium text-warm-white group-hover:text-accent-gold transition-colors">
-                    {feature.title}
-                  </h3>
-
-                  {/* Animated bottom border */}
-                  <div
-                    className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-accent-gold to-transparent rounded-b-lg transition-all duration-300 group-hover:w-full"
-                    style={{ width: '0%' }}
-                  />
-                </div>
+                <div className="w-1.5 h-1.5 rounded-full bg-accent-gold/40" />
+                <span className="text-sm sm:text-base text-warm-white/80 font-sans">{example}</span>
               </div>
-            );
-          })}
-        </div>
-
-        {/* Bottom statement */}
-        <div className="mt-12 sm:mt-16 lg:mt-20 text-center">
-          <p className="text-sm sm:text-base text-muted-foreground max-w-3xl mx-auto italic">
-            Designed for your business. Built to grow with it.
-          </p>
+            ))}
+          </div>
         </div>
       </div>
     </section>

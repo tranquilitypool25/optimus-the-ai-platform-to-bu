@@ -31,8 +31,8 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Optimus - Platform to Create',
-  description: 'The creative platform for teams who ship. Build, deploy, and scale with unprecedented velocity.',
+  title: 'NEXORA — Build For Tomorrow.',
+  description: 'Technology built around your business. We build connected business systems, intelligent automation and custom software.',
   generator: 'v0.app',
 }
 

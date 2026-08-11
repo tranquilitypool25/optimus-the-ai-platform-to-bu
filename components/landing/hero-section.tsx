@@ -22,7 +22,7 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 pt-28 sm:pt-32 lg:pt-40 pb-20">
-        {/* Eyebrow */}
+        {/* Eyebrow / Slogan */}
         <div
           className={`mb-6 sm:mb-8 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
@@ -38,7 +38,7 @@ export function HeroSection() {
                 }}
               />
             </span>
-            Automate. Elevate. Dominate.
+            Build For Tomorrow.
           </span>
         </div>
 
@@ -52,12 +52,12 @@ export function HeroSection() {
               transitionDelay: "100ms",
             }}
           >
-            <span className="block text-foreground">Intelligence,</span>
-            <span className="block text-foreground">Built Into</span>
+            <span className="block text-foreground">NEXORA</span>
+            <span className="block text-foreground">Intelligence, Built Into</span>
             <span className="block text-accent-gold">Your Business.</span>
           </h1>
 
-          {/* Brand Bio — one sentence that explains exactly what we do */}
+          {/* Brand Bio */}
           <p
             className="mt-6 sm:mt-8 text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed transition-all duration-1000"
             style={{
@@ -66,7 +66,7 @@ export function HeroSection() {
               transitionDelay: "300ms",
             }}
           >
-            We design, build and manage the intelligent systems that help your business capture more leads, automate repetitive work, and scale with confidence.
+            We build connected business systems, intelligent automation and custom software that help businesses capture more opportunities, simplify operations and grow.
           </p>
         </div>
 
@@ -86,7 +86,7 @@ export function HeroSection() {
               document.getElementById("apply")?.scrollIntoView({ behavior: "smooth" })
             }
           >
-            Apply for Access
+            Book a Discovery Call
             <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
           </Button>
           <Button
@@ -94,10 +94,10 @@ export function HeroSection() {
             size="lg"
             className="border-foreground/20 text-foreground hover:bg-foreground/5 rounded-full px-8 h-14 text-base"
             onClick={() =>
-              document.getElementById("features")?.scrollIntoView({ behavior: "smooth" })
+              document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })
             }
           >
-            See How It Works
+            Explore Solutions
           </Button>
         </div>
       </div>

@@ -3,12 +3,13 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const navLinks = [
-  { name: "About", href: "#features" },
-  { name: "Services", href: "#custom-software" },
-  { name: "Security", href: "#security" },
-  { name: "Pricing", href: "#pricing" },
+  { name: "Solutions", href: "#services" },
+  { name: "Work", href: "#projects" },
+  { name: "About", href: "#philosophy" },
+  { name: "Insights", href: "#" },
   { name: "Contact", href: "#apply" },
 ];
 
@@ -39,10 +40,18 @@ export function Navigation() {
           className={`flex items-center justify-between transition-all duration-500 px-4 sm:px-6 lg:px-8 ${isScrolled ? "h-12 sm:h-14" : "h-16 sm:h-20"}`}
         >
           {/* Logo */}
-          <a href="#" className="flex items-center gap-1 sm:gap-2 group shrink-0">
-            <span className={`font-display font-normal tracking-tight transition-all duration-500 ${isScrolled ? "text-lg sm:text-xl" : "text-2xl sm:text-3xl"}`}>Tranquility</span>
-            <span className={`text-accent-gold font-display font-normal transition-all duration-500 ${isScrolled ? "text-lg sm:text-xl" : "text-2xl sm:text-3xl"}`}>Intelligence</span>
-            <span className={`text-muted-foreground font-mono text-[8px] sm:text-[10px] transition-all duration-500 ${isScrolled ? "mt-0.5" : "mt-1"}`}>TM</span>
+          <a href="#" className="flex items-center gap-2 group shrink-0">
+            <div className="relative w-6 h-6 sm:w-8 sm:h-8">
+              <Image 
+                src="/icon.svg" 
+                alt="NEXORA Monogram" 
+                fill 
+                className="object-contain invert dark:invert-0"
+              />
+            </div>
+            <span className={`font-display font-normal tracking-tight transition-all duration-500 text-foreground ${isScrolled ? "text-lg sm:text-xl" : "text-2xl sm:text-3xl"}`}>
+              NEXORA
+            </span>
           </a>
 
           {/* Desktop Navigation */}
@@ -66,14 +75,14 @@ export function Navigation() {
               className={`bg-accent hover:bg-accent/90 text-accent-foreground rounded-full transition-all duration-500 font-sans font-medium ${isScrolled ? "px-3 lg:px-4 h-8 text-xs" : "px-4 lg:px-6 h-9 text-sm"}`}
               onClick={() => document.getElementById("apply")?.scrollIntoView({ behavior: "smooth" })}
             >
-              Apply for Access
+              Book a Discovery Call
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2"
+            className="md:hidden p-2 text-foreground"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -130,7 +139,7 @@ export function Navigation() {
                 document.getElementById("apply")?.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              Apply for Access
+              Book a Discovery Call
             </Button>
           </div>
         </div>

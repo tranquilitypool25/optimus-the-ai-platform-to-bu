@@ -1,123 +1,59 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { TrendingUp, Cpu, Code2, ArrowRight } from "lucide-react";
 
-const services = [
+const pillars = [
   {
-    number: "01",
-    title: "AI Receptionist & Customer Communication",
-    description: "Never miss another opportunity. AI voice and chat agents answer enquiries, qualify leads, respond to common questions and book appointments — 24/7.",
-    tags: "AI Voice · Website Chat · WhatsApp · Social Messaging · Missed-Call Text-Back"
+    id: "grow",
+    title: "GROW",
+    subtitle: "Customer Growth Systems",
+    description: "Turn more enquiries into customers with connected websites, CRM, customer communication, lead capture and automated follow-up.",
+    outcomes: [
+      "Capture more opportunities",
+      "Respond within seconds",
+      "Improve lead follow-up",
+      "Convert more enquiries",
+      "Better customer experiences"
+    ],
+    capabilities: "Websites · Landing pages · Funnels · CRM · AI Receptionist · Booking · SMS/WhatsApp · Reviews",
+    icon: TrendingUp
   },
   {
-    number: "02",
-    title: "Lead Generation & Automated Follow-Up",
-    description: "Turn more enquiries into customers with high-converting landing pages, funnels and intelligent follow-up sequences that respond within seconds and keep leads moving.",
-    tags: "Landing Pages · Lead Capture · SMS & WhatsApp Follow-Up · Email Automation · Database Reactivation"
+    id: "automate",
+    title: "AUTOMATE",
+    subtitle: "Intelligent Business Automation",
+    description: "Remove repetitive work and connect the processes that keep your business moving.",
+    outcomes: [
+      "Less manual administration",
+      "Faster internal processes",
+      "Fewer repetitive tasks",
+      "Real-time data visibility",
+      "Smarter daily operations"
+    ],
+    capabilities: "AI Agents · Workflow Automation · Lead Routing · Notifications · Automated Reporting · Task Automation",
+    icon: Cpu
   },
   {
-    number: "03",
-    title: "CRM & Sales Automation",
-    description: "Keep every lead, conversation and opportunity organised in one connected system — with pipelines and workflows designed around the way your business operates.",
-    tags: "CRM · Sales Pipelines · Unified Inbox · Lead Routing · Automated Workflows"
-  },
-  {
-    number: "04",
-    title: "Bookings, Payments & Client Experience",
-    description: "Make it easier for customers to do business with you — from booking an appointment to receiving reminders, proposals, invoices and making payments.",
-    tags: "Online Booking · Reminders · Payments · Invoicing · Proposals · Client Portals"
-  },
-  {
-    number: "05",
-    title: "Social Media Reputation & Marketing",
-    description: "Build your online presence and stay connected with customers through automated reviews, campaigns and consistent branded content.",
-    tags: "Google Reviews · Email & SMS Campaigns · Social Media Scheduling · AI Content Creation"
-  },
-  {
-    number: "06",
-    title: "Websites & Business Platforms",
-    description: "We build modern, mobile-first websites and custom business systems designed to connect your operations, customers and workflows in one place.",
-    tags: "Websites · Landing Pages · Dashboards · Reporting · Custom Business Automation"
+    id: "build",
+    title: "BUILD",
+    subtitle: "Custom Software & Apps",
+    description: "When standard software doesn’t fit your business, we build technology around the way you actually work.",
+    outcomes: [
+      "Technology designed for you",
+      "No restrictive frameworks",
+      "Scalable infrastructure",
+      "Connected operations",
+      "Unique competitive advantage"
+    ],
+    capabilities: "Web Applications · Mobile Apps · Client Portals · Inventory Systems · Dashboards · Bespoke Software",
+    icon: Code2
   }
 ];
 
-function TypewriterTitle({ title, isVisible }: { title: string; isVisible: boolean }) {
-  const [text, setText] = useState("");
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    if (isVisible && index < title.length) {
-      const timeout = setTimeout(() => {
-        setText((prev) => prev + title[index]);
-        setIndex((prev) => prev + 1);
-      }, 40);
-      return () => clearTimeout(timeout);
-    }
-  }, [isVisible, index, title]);
-
-  return (
-    <h3 className="text-xl sm:text-2xl font-display mb-3 sm:mb-4 text-foreground">
-      {text}
-      {isVisible && index < title.length && (
-        <span className="ml-1 inline-block w-1 h-6 sm:h-8 bg-accent-gold animate-pulse align-middle" />
-      )}
-    </h3>
-  );
-}
-
-function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
-  const [isVisible, setIsVisible] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true);
-      },
-      { threshold: 0.1 }
-    );
-    if (cardRef.current) observer.observe(cardRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div
-      ref={cardRef}
-      className={`group relative transition-all duration-700 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-      }`}
-      style={{ transitionDelay: `${index * 100}ms` }}
-    >
-      <div className="flex flex-col gap-4 py-8 sm:py-12">
-        <div className="flex items-start gap-4 sm:gap-6">
-          <span className="font-mono text-xs sm:text-sm text-accent-gold shrink-0 mt-1">{service.number}</span>
-          <div className="flex-1">
-            <TypewriterTitle title={service.title} isVisible={isVisible} />
-            <p className="text-body text-muted-foreground leading-relaxed mb-4 max-w-3xl">
-              {service.description}
-            </p>
-            <p className="text-xs sm:text-sm font-mono text-accent-gold/80 tracking-wide uppercase">
-              {service.tags}
-            </p>
-          </div>
-        </div>
-      </div>
-      {/* Animated separator line */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-foreground/10" />
-      <div 
-        className="absolute bottom-0 left-0 h-px bg-accent-gold transition-[width] duration-1000 ease-out z-10"
-        style={{ 
-          width: isVisible ? "100%" : "0%",
-          transitionDelay: `${index * 150}ms` 
-        }}
-      />
-    </div>
-  );
-}
-
 export function ServicesSection() {
   const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -131,31 +67,76 @@ export function ServicesSection() {
   }, []);
 
   return (
-    <section id="services" ref={sectionRef} className="relative py-16 sm:py-24 lg:py-32 bg-obsidian">
+    <section id="services" ref={sectionRef} className="relative py-24 lg:py-32 bg-obsidian">
       <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="mb-12 sm:mb-20">
-          <span className="inline-flex items-center gap-2 sm:gap-3 text-xs sm:text-sm font-mono text-muted-foreground mb-4 sm:mb-6 tracking-widest uppercase">
-            <span className="relative w-8 sm:w-12 h-px bg-foreground/10 overflow-hidden">
-              <span 
-                className="absolute inset-0 bg-accent-gold transition-[transform] duration-1000 ease-out origin-left"
-                style={{ transform: isVisible ? 'scaleX(1)' : 'scaleX(0)', transitionDelay: '200ms' }}
-              />
-            </span>
-            Our Expertise
+        <div className={`mb-16 sm:mb-24 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <span className="eyebrow mb-6">
+            <span className="eyebrow-line" />
+            Our Core Pillars
           </span>
-          <h2 className="text-section-title font-display mb-6 leading-tight max-w-4xl">
-            Intelligent Systems Built Around<br />
-            <span className="text-accent-gold">Your Business.</span>
+          <h2 className="text-section-title font-display mb-8 leading-tight text-foreground">
+            Technology built around <br />
+            <span className="text-accent-gold">your business.</span>
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl leading-relaxed">
-            We design, build and manage intelligent systems that help businesses capture more leads, automate repetitive work and deliver a better customer experience.
+            Your business shouldn’t have to fit your software. Your technology should fit your business. We identify what you actually need and build the right solution around it.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-20">
-          {services.map((service, index) => (
-            <ServiceCard key={service.number} service={service} index={index} />
-          ))}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+          {pillars.map((pillar, index) => {
+            const Icon = pillar.icon;
+            return (
+              <div
+                key={pillar.id}
+                className={`group relative p-8 sm:p-10 rounded-2xl border border-foreground/5 bg-navy-surface/20 transition-all duration-1000 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+                }`}
+                style={{ transitionDelay: `${index * 200}ms` }}
+              >
+                <div className="flex flex-col h-full">
+                  <div className="flex items-center justify-between mb-8">
+                    <span className="font-mono text-xs tracking-[0.3em] text-accent-gold">{pillar.title}</span>
+                    <Icon className="w-6 h-6 text-accent-gold/40 group-hover:text-accent-gold transition-colors duration-500" />
+                  </div>
+                  
+                  <h3 className="text-2xl sm:text-3xl font-display text-foreground mb-6">{pillar.subtitle}</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-8 flex-1">
+                    {pillar.description}
+                  </p>
+
+                  <div className="space-y-4 mb-10">
+                    <p className="text-[10px] font-mono tracking-widest text-accent-gold/60 uppercase">Key Outcomes</p>
+                    <ul className="space-y-2">
+                      {pillar.outcomes.map((outcome, i) => (
+                        <li key={i} className="flex items-center gap-3 text-sm text-warm-white/70">
+                          <div className="w-1 h-1 rounded-full bg-accent-gold" />
+                          {outcome}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="pt-8 border-t border-foreground/5">
+                    <p className="text-[10px] font-mono tracking-widest text-muted-foreground uppercase mb-3">Capabilities</p>
+                    <p className="text-xs text-muted-foreground/80 leading-relaxed italic">
+                      {pillar.capabilities}
+                    </p>
+                  </div>
+                </div>
+                
+                {/* Animated gold line at bottom */}
+                <div className="absolute bottom-0 left-0 w-full h-px bg-foreground/5" />
+                <div 
+                  className="absolute bottom-0 left-0 h-px bg-accent-gold transition-[width] duration-1000 ease-out origin-left"
+                  style={{ 
+                    width: isVisible ? "100%" : "0%",
+                    transitionDelay: `${(index * 200) + 600}ms` 
+                  }}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
