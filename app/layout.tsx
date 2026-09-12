@@ -1,52 +1,29 @@
-import React from "react"
-import type { Metadata } from 'next'
-import { Instrument_Sans, Instrument_Serif, JetBrains_Mono, Open_Sans, Playfair_Display } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
-import './globals.css'
-
-const instrumentSans = Instrument_Sans({ 
-  subsets: ["latin"],
-  variable: '--font-instrument'
-});
-
-const instrumentSerif = Instrument_Serif({ 
-  subsets: ["latin"],
-  weight: "400",
-  variable: '--font-instrument-serif'
-});
-
-const jetbrainsMono = JetBrains_Mono({ 
-  subsets: ["latin"],
-  variable: '--font-jetbrains'
-});
-
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  variable: '--font-open-sans'
-});
-
-const playfairDisplay = Playfair_Display({
-  subsets: ["latin"],
-  variable: '--font-playfair'
-});
+import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: 'NEXORA — Build For Tomorrow.',
-  description: 'Technology built around your business. We build connected business systems, intelligent automation and custom software.',
-  generator: 'v0.app',
-}
+  title: "Auros | Making Digital Markets Liquid",
+  description: "Building next-gen liquidity infrastructure for the crypto economy.",
+  icons: {
+    icon: "/icon.svg",
+  },
+};
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#012624",
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${instrumentSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} ${openSans.variable} ${playfairDisplay.variable} font-sans antialiased`}>
+      <body>
         {children}
         <Analytics />
       </body>
     </html>
-  )
+  );
 }
