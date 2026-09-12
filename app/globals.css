@@ -825,7 +825,10 @@ canvas {
 
 .footer {
   padding: 130px 0 38px;
-  background: var(--deep);
+  background:
+    radial-gradient(ellipse at 36% 112%, rgba(0, 224, 204, 0.5) 0%, rgba(0, 112, 103, 0.2) 30%, transparent 58%),
+    radial-gradient(ellipse at 10% 16%, rgba(0, 93, 86, 0.42) 0%, transparent 46%),
+    linear-gradient(108deg, #013f3a 0%, var(--deep) 66%);
 }
 
 .footer__inner {
